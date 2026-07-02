@@ -1,0 +1,441 @@
+[gd_scene format=3 uid="uid://cgbg24wmskti1"]
+
+[ext_resource type="Script" uid="uid://ca7ugi6emcwu" path="res://src/scripts/final_boss.gd" id="1_6ag57"]
+[ext_resource type="Script" uid="uid://d2qode13dvwob" path="res://src/scripts/question.gd" id="2_k525x"]
+[ext_resource type="Texture2D" uid="uid://dt7idby6ioc1h" path="res://assets/images/12.png" id="3_1hrp2"]
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="3_loflm"]
+[ext_resource type="Texture2D" uid="uid://dw07aj3turlb" path="res://assets/raw/MC_platformer_spritesheet (2).png" id="5_jil5c"]
+[ext_resource type="Theme" uid="uid://o5t7jr4vdtem" path="res://assets/prefabs/ui/option_button_theme.tres" id="5_u6exl"]
+[ext_resource type="Texture2D" uid="uid://b4meiyl3qtq4d" path="res://assets/raw/boss_hair_anim5-ezgif.com-gif-to-sprite-converter (1).png" id="5_vkukm"]
+[ext_resource type="FontFile" uid="uid://cwbt4fgf27yh7" path="res://assets/fonts/MGPixel.otf" id="6_klscq"]
+[ext_resource type="Script" uid="uid://buoih526378b8" path="res://src/scripts/flash_componet.gd" id="7_8xf35"]
+[ext_resource type="Texture2D" uid="uid://dswaovw6ecers" path="res://assets/images/mc_boss_hand.png" id="10_u6exl"]
+[ext_resource type="Script" uid="uid://do3uhuvt6gysq" path="res://assets/scenes/screen_shake.gd" id="11_klscq"]
+[ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="12_05l7r"]
+[ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="13_mha1t"]
+
+[sub_resource type="Resource" id="Resource_k525x"]
+script = ExtResource("2_k525x")
+question = "In a deal with the devil, what is usually the hidden cost?"
+option_a = "Taxes"
+option_b = "Your soul"
+option_c = "Your furniture"
+option_d = "Interest rates"
+answer = 1
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_jil5c"]
+script = ExtResource("2_k525x")
+question = "What does a spinning wheel represent in many games of chance?"
+option_a = "Skill"
+option_b = "Fate"
+option_c = "Intelligence"
+option_d = "Fairness"
+answer = 1
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_vkukm"]
+script = ExtResource("2_k525x")
+question = "Traditionally, a contestant risks what during a final wager?"
+option_a = "Their turn"
+option_b = "Their dignity"
+option_c = "Their accumulated winnings"
+option_d = "Their microphone"
+answer = 2
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_8xf35"]
+script = ExtResource("2_k525x")
+question = "A lightning round is designed to test which quality?"
+option_a = "Patience"
+option_b = "Speed"
+option_c = "Strength"
+option_d = "Luck"
+answer = 1
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_3etcb"]
+script = ExtResource("2_k525x")
+question = "When two contestants are tied, a tiebreaker exists to determine what?"
+option_a = "The host's favorite player"
+option_b = "The audience score"
+option_c = "The winner"
+option_d = "The next sponsor"
+answer = 2
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_klscq"]
+script = ExtResource("2_k525x")
+question = "What is an audience expected to do during a game show?"
+option_a = "Remain silent"
+option_b = "Compete directly"
+option_c = "Read the rules"
+option_d = "React and participate"
+answer = 3
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_05l7r"]
+script = ExtResource("2_k525x")
+question = "The phrase 'double or nothing' means a contestant risks what they have for what reward?"
+option_a = "Half as much"
+option_b = "No reward at all"
+option_c = "Twice the reward"
+option_d = "A second turn"
+answer = 2
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_mha1t"]
+script = ExtResource("2_k525x")
+question = "Casinos and game operators make money because they possess what?"
+option_a = "A statistical advantage"
+option_b = "Better luck"
+option_c = "More players"
+option_d = "Faster dealers"
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_e4jb7"]
+script = ExtResource("2_k525x")
+question = "What does it mean to 'lock in' an answer?"
+option_a = "To hide it"
+option_b = "To change it later"
+option_c = "To make it final"
+option_d = "To wager points"
+answer = 2
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_xkmi6"]
+script = ExtResource("2_k525x")
+question = "What is the grand prize of Wheel of Damnation?"
+option_a = "Wealth"
+option_b = "Fame"
+option_c = "Freedom"
+option_d = "Survival"
+answer = 3
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loflm"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 3.0
+expand_margin_top = 8.0
+expand_margin_right = 3.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkukm"]
+atlas = ExtResource("5_jil5c")
+region = Rect2(50, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xf35"]
+atlas = ExtResource("5_jil5c")
+region = Rect2(100, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3etcb"]
+atlas = ExtResource("5_jil5c")
+region = Rect2(150, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hrp2"]
+atlas = ExtResource("5_jil5c")
+region = Rect2(200, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6exl"]
+atlas = ExtResource("5_jil5c")
+region = Rect2(250, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klscq"]
+atlas = ExtResource("5_jil5c")
+region = Rect2(300, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05l7r"]
+atlas = ExtResource("5_jil5c")
+region = Rect2(350, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mha1t"]
+atlas = ExtResource("5_jil5c")
+region = Rect2(400, 50, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oag77"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkukm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xf35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3etcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hrp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6exl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klscq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05l7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mha1t")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4jb7"]
+atlas = ExtResource("5_vkukm")
+region = Rect2(0, 0, 1296, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkmi6"]
+atlas = ExtResource("5_vkukm")
+region = Rect2(1296, 0, 1296, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v7t1"]
+atlas = ExtResource("5_vkukm")
+region = Rect2(2592, 0, 1296, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u3g7"]
+atlas = ExtResource("5_vkukm")
+region = Rect2(3888, 0, 1296, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct20v"]
+atlas = ExtResource("5_vkukm")
+region = Rect2(5184, 0, 1296, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgssc"]
+atlas = ExtResource("5_vkukm")
+region = Rect2(0, 1080, 1296, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_syr0s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4jb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkmi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v7t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u3g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct20v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgssc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oag77"]
+bg_color = Color(0.6906835, 0.15478319, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syr0s"]
+bg_color = Color(0.36577877, 0.6953433, 0.19424301, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Quiz" type="Control" unique_id=1375970361]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+layout_direction = 2
+script = ExtResource("1_6ag57")
+boss_max_health = 5
+player_damage = 1
+questions = Array[ExtResource("2_k525x")]([SubResource("Resource_k525x"), SubResource("Resource_jil5c"), SubResource("Resource_vkukm"), SubResource("Resource_8xf35"), SubResource("Resource_3etcb"), SubResource("Resource_klscq"), SubResource("Resource_05l7r"), SubResource("Resource_mha1t"), SubResource("Resource_e4jb7"), SubResource("Resource_xkmi6")])
+
+[node name="12" type="Sprite2D" parent="." unique_id=1530179560]
+position = Vector2(960.00006, 540)
+scale = Vector2(6, 6)
+texture = ExtResource("3_1hrp2")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1103896552]
+
+[node name="CRT" parent="UI" unique_id=719073563 instance=ExtResource("13_mha1t")]
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 7.0
+offset_bottom = 12.0
+metadata/_edit_lock_ = true
+
+[node name="GUI" parent="UI" unique_id=233616670 instance=ExtResource("3_loflm")]
+
+[node name="Options" type="HBoxContainer" parent="." unique_id=2003478243]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 143.0
+offset_top = -52.0
+offset_right = 693.0
+offset_bottom = 52.0
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=2066377264]
+layout_mode = 2
+
+[node name="OptionA" type="Button" parent="Options/VBoxContainer" unique_id=653235471]
+custom_minimum_size = Vector2(275, 50)
+custom_maximum_size = Vector2(275, -1)
+layout_mode = 2
+layout_direction = 2
+focus_neighbor_right = NodePath("../../VBoxContainer2/OptionC")
+focus_neighbor_bottom = NodePath("../OptionB")
+theme = ExtResource("5_u6exl")
+theme_override_fonts/font = ExtResource("6_klscq")
+theme_override_font_sizes/font_size = 20
+text = "a"
+alignment = 0
+autowrap_mode = 2
+
+[node name="OptionB" type="Button" parent="Options/VBoxContainer" unique_id=1667687650]
+custom_minimum_size = Vector2(275, 50)
+custom_maximum_size = Vector2(275, -1)
+layout_mode = 2
+layout_direction = 2
+focus_neighbor_top = NodePath("../OptionA")
+focus_neighbor_right = NodePath("../../VBoxContainer2/OptionD")
+theme_override_font_sizes/font_size = 20
+text = "b"
+alignment = 0
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Options" unique_id=1693781074]
+layout_mode = 2
+
+[node name="OptionC" type="Button" parent="Options/VBoxContainer2" unique_id=1841641238]
+custom_minimum_size = Vector2(275, 50)
+custom_maximum_size = Vector2(275, -1)
+layout_mode = 2
+layout_direction = 2
+focus_neighbor_left = NodePath("../../VBoxContainer/OptionA")
+focus_neighbor_bottom = NodePath("../OptionD")
+theme_override_font_sizes/font_size = 20
+text = "c"
+alignment = 0
+autowrap_mode = 2
+
+[node name="OptionD" type="Button" parent="Options/VBoxContainer2" unique_id=794941133]
+custom_minimum_size = Vector2(275, 50)
+custom_maximum_size = Vector2(275, -1)
+layout_mode = 2
+layout_direction = 2
+focus_neighbor_left = NodePath("../../VBoxContainer/OptionB")
+focus_neighbor_top = NodePath("../OptionC")
+theme_override_font_sizes/font_size = 20
+text = "d"
+alignment = 0
+autowrap_mode = 2
+
+[node name="QuestionLabel" type="Label" parent="." unique_id=1699864311]
+custom_minimum_size = Vector2(600, 50)
+custom_maximum_size = Vector2(600, -1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22800002
+anchor_top = 0.397
+anchor_right = 0.22800002
+anchor_bottom = 0.397
+offset_left = -294.76004
+offset_top = -21.76001
+offset_right = 305.23996
+offset_bottom = 28.23999
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_position = Vector2(0, -100)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_loflm")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1762459651]
+position = Vector2(152, 920)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_oag77")
+autoplay = "default"
+
+[node name="BossAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1480900053]
+position = Vector2(1272, 540)
+sprite_frames = SubResource("SpriteFrames_syr0s")
+autoplay = "default"
+
+[node name="BossFlashComponent" type="Node" parent="." unique_id=633253812 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("7_8xf35")
+sprite_2d = NodePath("../BossAnimatedSprite")
+metadata/_custom_type_script = "uid://buoih526378b8"
+
+[node name="BossHandFlashComponent" type="Node" parent="." unique_id=816543336 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("7_8xf35")
+sprite_2d = NodePath("../McBossHand")
+metadata/_custom_type_script = "uid://buoih526378b8"
+
+[node name="PlayerFlashComponent" type="Node" parent="." unique_id=117863802 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("7_8xf35")
+sprite_2d = NodePath("../PlayerAnimatedSprite")
+metadata/_custom_type_script = "uid://buoih526378b8"
+
+[node name="McBossHand" type="Sprite2D" parent="." unique_id=1473106677]
+position = Vector2(918, 883)
+scale = Vector2(6, 6)
+texture = ExtResource("10_u6exl")
+
+[node name="BossHealthBar" type="ProgressBar" parent="." unique_id=1510013361]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 146.0
+offset_top = 1015.0
+offset_right = 791.0
+offset_bottom = 1059.0
+grow_horizontal = 2
+layout_direction = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_oag77")
+theme_override_styles/fill = SubResource("StyleBoxFlat_syr0s")
+value = 50.0
+show_percentage = false
+
+[node name="ShakeCamera2D" type="Camera2D" parent="." unique_id=1132796550]
+position = Vector2(960, 540)
+script = ExtResource("11_klscq")
+
+[node name="Curtains" parent="." unique_id=1568423794 instance=ExtResource("12_05l7r")]
+visible = false
+
+[node name="The end" type="Label" parent="." unique_id=1483056327]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -207.5
+offset_bottom = 207.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 150
+text = "The End
+Thank you for playing!"
+horizontal_alignment = 1
+
+[connection signal="focus_entered" from="Options" to="." method="_on_options_focus_entered"]
+[connection signal="mouse_entered" from="Options/VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]

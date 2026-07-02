@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://bkuwogcw7x8x1"]
+
+[ext_resource type="PackedScene" uid="uid://1r4ydw3tyo5s" path="res://assets/map/scary_maze/scary_maze_lv_1.tscn" id="1_owkrm"]
+[ext_resource type="Texture2D" uid="uid://bqykonrifpc3x" path="res://assets/raw/maze/Player_Light.png" id="3_77in4"]
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="4_3wkap"]
+[ext_resource type="PackedScene" uid="uid://b830mwodbpleq" path="res://assets/prefabs/player.tscn" id="5_3wkap"]
+[ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="5_hbjed"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_owkrm"]
+distance = 1.9999924
+
+[sub_resource type="Animation" id="Animation_hbjed"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player2/PointLight2D:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3wkap"]
+resource_name = "gradual_dim"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player2/PointLight2D:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.0333333, 25, 29.46667, 29.56667, 29.66667, 29.766668, 29.866669, 29.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 0, 0, 0, 0, 0, 0),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.9999967, 0.50892127, 0.5205346, 1), Color(0.9999744, 0.34201178, 0.3984138, 1), Color(0, 0, 0, 1), Color(0.9999744, 0.34201178, 0.3984138, 1), Color(0, 0, 0, 1), Color(0.9999744, 0.34201178, 0.3984138, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hbjed"]
+_data = {
+&"RESET": SubResource("Animation_hbjed"),
+&"gradual_dim": SubResource("Animation_3wkap")
+}
+
+[node name="ScaryMaze" type="Node2D" unique_id=1149450057]
+
+[node name="ScaryMazeLv1" parent="." unique_id=631495778 node_paths=PackedStringArray("point_light", "darkness", "visual_timer_anim") instance=ExtResource("1_owkrm")]
+point_light = NodePath("../Player2/PointLight2D")
+darkness = NodePath("../CanvasModulate")
+visual_timer_anim = NodePath("../VisualTimerAnim")
+
+[node name="AmbianceSoundTimer" type="Timer" parent="ScaryMazeLv1" unique_id=2068793606]
+
+[node name="worldboundary" type="Node2D" parent="." unique_id=638251911]
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="worldboundary" unique_id=1649787983]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D4" unique_id=2074031186]
+position = Vector2(1052, 1550)
+shape = SubResource("WorldBoundaryShape2D_owkrm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="worldboundary" unique_id=1954927351]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D" unique_id=389266396]
+position = Vector2(-91, 508)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_owkrm")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="worldboundary" unique_id=1031364664]
+position = Vector2(696, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D3" unique_id=452126651]
+position = Vector2(1968, 467)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_owkrm")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="worldboundary" unique_id=1821123635]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D2" unique_id=233518552]
+position = Vector2(843, -38)
+rotation = -3.1415925
+shape = SubResource("WorldBoundaryShape2D_owkrm")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1333303275]
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=353977363]
+
+[node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("5_hbjed")]
+
+[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("4_3wkap")]
+
+[node name="Player2" parent="." unique_id=1048146834 instance=ExtResource("5_3wkap")]
+position = Vector2(195, 194)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player2" unique_id=723324708]
+scale = Vector2(29.171877, 27.61719)
+texture = ExtResource("3_77in4")
+texture_scale = 1.2
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player2" unique_id=1338842814]
+
+[node name="VisualTimerAnim" type="AnimationPlayer" parent="." unique_id=328224295]
+libraries/ = SubResource("AnimationLibrary_hbjed")
+
+[connection signal="timeout" from="ScaryMazeLv1/AmbianceSoundTimer" to="ScaryMazeLv1" method="_on_ambiance_sound_timer_timeout"]
